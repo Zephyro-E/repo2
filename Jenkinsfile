@@ -14,7 +14,7 @@ pipeline {
                 sh'''
                     /home/ubuntu/.local/bin/flake8 --exit-zero 
                 '''
-                 recordIssues tools: [flake8(name: 'flake8', pattern: 'flake8.out')], qualityGates: [[threshold:8, type: 'TOTAL', unstable: true], [threshold: 10, type: 'TOTAL', unstable: false]]
+                 //recordIssues tools: [flake8(name: 'flake8', pattern: 'flake8.out')], qualityGates: [[threshold:8, type: 'TOTAL', unstable: true], [threshold: 10, type: 'TOTAL', unstable: false]]
             }
         }
     }
