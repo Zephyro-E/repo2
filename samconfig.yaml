@@ -1,4 +1,7 @@
 version: 0.1
+StackName: todo-list-aws
+Region: us-east-1
+S3Bucket: todo-list-aws
 default:
   Stage: staging
   ConfirmChangeset: true
