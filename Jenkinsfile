@@ -47,5 +47,14 @@ pipeline {
                 '''
             }
         }
+        stage('Merge to Master') {
+            steps {
+                script {
+                    checkout scm
+                    git checkout 'master'
+                    git merge 'develop'
+                }
+            }
+        }
     }
 }
