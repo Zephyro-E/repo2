@@ -22,7 +22,8 @@ pipeline {
                 '''
                     recordIssues tools: [pyLint(name: 'Bandit', pattern: 'bandit.out')], qualityGates: [[threshold:2, type: 'TOTAL', unstable: true], [threshold: 4, type: 'TOTAL', unstable: false]]
                 sh'''
-                    sudo -u ubuntu cat /var/log/auth.log
+                    sudo -u ubuntu chmod 755 /home/ubuntu
+
                 '''    
             }
         }
