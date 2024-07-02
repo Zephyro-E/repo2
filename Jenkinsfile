@@ -11,7 +11,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh'''
-                    sam deploy --stack-name todo-list-aws-production --region us-east-1 --s3-bucket s3tarea14 --config-file samconfig.yaml
+                    sam deploy --stack-name todo-list-aws-production --region us-east-1 --s3-bucket s3tarea14b --config-file samconfig.yaml
                 '''
             }
         }
