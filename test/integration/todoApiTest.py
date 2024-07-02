@@ -7,9 +7,19 @@ import json
 
 import pytest
 
-BASE_URL = os.environ.get("BASE_URL")
+# Cargar las URLs desde deploy_output.json
+with open('deploy_output.json', 'r') as f:
+    urls = json.load(f)
+
+#BASE_URL = os.environ.get("BASE_URL")
+os.environ['BASE_URL'] = urls['BaseUrlApi']
+os.environ['DELETE_TODO_URL'] = urls['DeleteTodoApi']
+os.environ['LIST_TODOS_URL'] = urls['ListTodosApi']
+os.environ['UPDATE_TODO_URL'] = urls['UpdateTodoApi']
+os.environ['GET_TODO_URL'] = urls['GetTodoApi']
+os.environ['CREATE_TODO_URL'] = urls['CreateTodoApi']
 #BASE_URL = "https://m0qwfec693.execute-api.us-east-1.amazonaws.com/Prod"
-DEFAULT_TIMEOUT = 2  # in secs
+DEFAULT_TIMEOUT = 10  # in secs
 
 
 @pytest.mark.api
