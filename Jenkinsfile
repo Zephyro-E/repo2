@@ -12,6 +12,7 @@ pipeline {
             steps {
                 // Flake8 sobre el código descargado en la etapa anterior
                 sh'''
+                    SET PYTHONPATH=.
                     /home/ubuntu/.local/bin/flake8 --exit-zero src >flake8.out
                 '''
                  //recordIssues tools: [flake8(name: 'flake8', pattern: 'flake8.out')], qualityGates: [[threshold:8, type: 'TOTAL', unstable: true], [threshold: 10, type: 'TOTAL', unstable: false]]
