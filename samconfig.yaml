@@ -1,9 +1,10 @@
 version: 0.1
-StackName: todo-list-aws
-Region: us-east-1
-S3Bucket: todo-list-aws
+stack_name: todo-list-aws
+region: us-east-1
+s3_bucket: todo-list-aws
 default:
-  Stage: staging
-  ConfirmChangeset: true
-  AllowIAMRoleCreation: true
-  SaveConfig: true
+  parameter_overrides:
+    Stage: staging
+  confirm_changeset: true
+  allow_iam_role_creation: true
+  save_config: true
