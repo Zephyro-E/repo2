@@ -1,0 +1,9 @@
+StackName: todo-list-aws
+Region: us-east-1
+# Opciones para sam deploy --guided
+# Establecer los parámetros necesarios
+Parameters:
+  Stage: staging
+  ConfirmChangeset: n
+  AllowIAMRoleCreation: y
+  SaveConfig: y
