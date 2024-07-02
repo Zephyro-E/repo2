@@ -52,8 +52,8 @@ pipeline {
                 script {
                     checkout scm
                     git checkout 'master'
-                    git merge 'develop'
-                    git chekcout 'develop'
+                    git merge -X subtree=/c/Users/Eduardo/Desktop/DevOps-UNIR/repo2/repo2/Jenkinsfile. 'develop'
+                    git checkout 'develop'
                 }
             }
         }
