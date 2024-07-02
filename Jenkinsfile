@@ -36,7 +36,7 @@ pipeline {
         }
         stage('CatchUrls') {
             steps {
-                sh "aws cloudformation describe-stacks --stack-name todo-list-aws --region us-east-1 --query "Stacks[0].Outputs[?OutputKey=='BaseUrlApi' || OutputKey=='DeleteTodoApi' || OutputKey=='ListTodosApi' || OutputKey=='UpdateTodoApi' || OutputKey=='GetTodoApi' || OutputKey=='CreateTodoApi'].OutputValue" --output json > deploy_output.json"
+                sh 'aws cloudformation describe-stacks --stack-name todo-list-aws --region us-east-1 --query "Stacks[0].Outputs[?OutputKey==\'BaseUrlApi\' || OutputKey==\'DeleteTodoApi\' || OutputKey==\'ListTodosApi\' || OutputKey==\'UpdateTodoApi\' || OutputKey==\'GetTodoApi\' || OutputKey==\'CreateTodoApi\'].OutputValue" --output json > deploy_output.json'
             }
         }
         stage('Unit') {
