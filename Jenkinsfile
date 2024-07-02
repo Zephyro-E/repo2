@@ -11,13 +11,13 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh'''
-                    sam deploy --stack-name todo-list-aws-production --region us-east-1 --s3-bucket s3tarea14b --config-file samconfig.yaml
+                    sam deploy --stack-name todo-list-aws-prod --region us-east-1 --s3-bucket s3tarea14b --config-file samconfig.yaml
                 '''
             }
         }
         stage('CatchUrls') {
             steps {
-                sh 'aws cloudformation describe-stacks --stack-name todo-list-aws-production --region us-east-1 --query "Stacks[0].Outputs[?OutputKey==\'BaseUrlApi\' || OutputKey==\'DeleteTodoApi\' || OutputKey==\'ListTodosApi\' || OutputKey==\'UpdateTodoApi\' || OutputKey==\'GetTodoApi\' || OutputKey==\'CreateTodoApi\'].OutputValue" --output json > deploy_output.json'
+                sh 'aws cloudformation describe-stacks --stack-name todo-list-aws-prod --region us-east-1 --query "Stacks[0].Outputs[?OutputKey==\'BaseUrlApi\' || OutputKey==\'DeleteTodoApi\' || OutputKey==\'ListTodosApi\' || OutputKey==\'UpdateTodoApi\' || OutputKey==\'GetTodoApi\' || OutputKey==\'CreateTodoApi\'].OutputValue" --output json > deploy_output.json'
             }
         }
         stage('Unit') {
