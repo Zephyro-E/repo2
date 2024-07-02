@@ -27,5 +27,12 @@ pipeline {
                 '''    
             }
         }
+        stage('Deploy') {
+            steps {
+                sh'''
+                    sam deploy --stack-name todo-list-aws --region us-east-1 --s3-bucket s3tarea14 --config-file samconfig.yaml
+                '''
+            }
+        }
     }
 }
