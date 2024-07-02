@@ -49,9 +49,7 @@ pipeline {
         }
         stage('StackDelete') {
             steps {
-                sh'''
-                    aws cloudformation delete-stack --stack-name todo-list-aws --region us-east-1
-                '''
+                aws cloudformation delete-stack --stack-name todo-list-aws --region us-east-1
             }
         }
     }
