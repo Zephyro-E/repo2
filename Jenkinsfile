@@ -1,10 +1,6 @@
 pipeline {
     agent any
 
-    environment {
-        PATH = "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/home/ubuntu/.local/bin"
-    }
-
     stages {
         stage('Checkout SCM') {
             steps {
