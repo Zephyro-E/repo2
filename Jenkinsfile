@@ -53,6 +53,7 @@ pipeline {
                     checkout scm
                     git checkout 'master'
                     git merge 'develop'
+                    git chekcout 'develop'
                 }
             }
         }
