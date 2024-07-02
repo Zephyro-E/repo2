@@ -34,5 +34,20 @@ pipeline {
                 '''
             }
         }
+        stage('Unit') {
+            steps {
+                sh'''
+                    export PYTHONPATH=%WORKSPACE%
+                    pytest --junitxml=result-unit.xml test/unit
+                '''
+            }
+        }
+        stage('StackDelete') {
+            steps {
+                sh'''
+                    aws cloudformation delete-stack --stack-name todo-list-aws --region us-east-1
+                '''
+            }
+        }
     }
 }
